@@ -1,3 +1,11 @@
-export default function Home() {
-  return <div className='text-xl font-bold text-blue-500'>Hello</div>;
+import Banner from '@/components/banner';
+
+export default async function IndexPage() {
+  return (
+    <div className='w-full'>
+      {/* BANNER SECTION */}
+      <Banner />
+      <div></div>
+    </div>
+  );
 }

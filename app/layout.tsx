@@ -1,18 +1,17 @@
-import '../globals.css';
+import './globals.css';
 
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
-import { Locale } from '@/features/internationalization/i18n-config';
 import Navbar from '@/components/navbar/navbar';
 
 const geistSans = localFont({
-  src: '../fonts/GeistVF.woff',
+  src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
   weight: '100 900',
 });
 const geistMono = localFont({
-  src: '../fonts/GeistMonoVF.woff',
+  src: './fonts/GeistMonoVF.woff',
   variable: '--font-geist-mono',
   weight: '100 900',
 });
@@ -24,22 +23,21 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: Locale };
 }>) {
-  const { lang } = await params;
   return (
-    <html lang={lang}>
+    <html lang='en'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className='flex h-full min-h-screen flex-col'>
           <Navbar />
-          <div className='container mx-auto mt-12 flex-1 px-10'>{children}</div>
+          {/* MAIN CONTENT PAGES*/}
+          <div className='mb-10 flex-1'>{children}</div>
         </div>
       </body>
     </html>
   );
 }
+// container mx-auto  px-10
