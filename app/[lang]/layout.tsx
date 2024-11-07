@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import { Locale } from '@/features/internationalization/i18n-config';
+import Navbar from '@/components/navbar/navbar';
 
 const geistSans = localFont({
   src: '../fonts/GeistVF.woff',
@@ -34,7 +35,10 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className='flex h-full min-h-screen flex-col'>
+          <Navbar />
+          <div className='container mx-auto mt-12 flex-1 px-10'>{children}</div>
+        </div>
       </body>
     </html>
   );
