@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
+import Footer from '@/components/global/footer';
 import Navbar from '@/components/navbar/navbar';
 
 const geistSans = localFont({
@@ -35,9 +36,9 @@ export default async function RootLayout({
           <Navbar />
           {/* MAIN CONTENT PAGES*/}
           <div className='mb-10 flex-1'>{children}</div>
+          <Footer />
         </div>
       </body>
     </html>
   );
 }
-// container mx-auto  px-10
